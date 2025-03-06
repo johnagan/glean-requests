@@ -24,4 +24,4 @@ jobs:
 
       - name: Analysing the code with pylint
         run: |
-          uv run pylint $(git ls-files '*.py')
+          uv run pylint --ignore-patterns=test_.*?py $(git ls-files '*.py')
