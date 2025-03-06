@@ -1,4 +1,4 @@
-# requests-glean
+# glean-requests
 
 A minimal wrapper of the requests library for Glean's API.
 
