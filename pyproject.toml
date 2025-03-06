@@ -1,6 +1,6 @@
 [project]
 name = "glean-requests"
-version = "0.1.0"
+version = "0.2.0"
 description = "A minimal wrapper of the requests library for Glean's API"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -26,8 +26,8 @@ dependencies = ["requests>=2.32.0"]
 "Bug Tracker" = "https://github.com/johnagan/glean-requests/issues"
 
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.pylint.messages_control]
 disable = ["too-many-arguments", "missing-final-newline"]

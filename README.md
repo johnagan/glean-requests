@@ -16,18 +16,19 @@ pip install glean-requests
 from glean_requests import GleanRestClient
 
 # Initialize the client
+# https://developers.glean.com/client/overview/#section/Introduction
 client = GleanRestClient(
     api_token="your_api_token",
     subdomain="your_subdomain",
-    act_as="optional_user_to_act_as",
-    auth_type="OAUTH"  # or "JWT"
+    act_as="optional_user_to_act_as", # Optional
+    auth_type="OAUTH" # Optional
 )
 
-# Make a GET request
-response = client.get("endpoint")
-
 # Make a POST request
-response = client.post("endpoint", json={"key": "value"})
+# Example Search
+# https://developers.glean.com/client/operation/search/
+payload = { "query": "your_query" }
+response = client.post("search", json=payload)
 ```
 
 ### Indexing API Client
@@ -36,15 +37,19 @@ response = client.post("endpoint", json={"key": "value"})
 from glean_requests import GleanIndexingClient
 
 # Initialize the client
+# https://developers.glean.com/docs/indexing_api/indexing_api_getting_started/
 client = GleanIndexingClient(
     api_token="your_api_token",
     subdomain="your_subdomain",
-    act_as="optional_user_to_act_as",
-    auth_type="OAUTH"  # or "JWT"
+    act_as="optional_user_to_act_as", # Optional
+    auth_type="OAUTH" # Optional
 )
 
 # Make API requests
-response = client.post("endpoint", json={"key": "value"})
+# Example Get Datasource Configuration
+# https://developers.glean.com/indexing/tag/Datasources/paths/~1getdatasourceconfig/post/
+payload = {"datasource": "testing"}
+response = client.post("getdatasourceconfig", json=payload)
 ```
 
 ## Features
