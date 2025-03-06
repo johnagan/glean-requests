@@ -4,7 +4,8 @@ A client session for interacting with Glean's REST API.
 This module provides a simple interface for making authenticated requests to Glean's API endpoints.
 """
 
-from typing import Dict, Optional, Literal
+from typing import Dict, Literal, Optional
+
 import requests
 
 DEFAULT_TIMEOUT = 60
@@ -51,8 +52,9 @@ class GleanBaseClient(requests.Session):
         elif token_type == "indexing":
             self.base_url = self.get_base_url(subdomain, "api/index")
 
-
-    def get_base_url(self, subdomain: str, path: str = "rest/api", version: str = "v1") -> str:
+    def get_base_url(
+        self, subdomain: str, path: str = "rest/api", version: str = "v1"
+    ) -> str:
         """
         Return the base URL for the Glean API request.
 
@@ -148,6 +150,7 @@ class GleanBaseClient(requests.Session):
 
         return response
 
+
 class GleanRestClient(GleanBaseClient):
     """
     A client for making authenticated requests to Glean's REST API endpoints.
@@ -178,6 +181,7 @@ class GleanRestClient(GleanBaseClient):
             auth_type=auth_type,
             token_type="rest",
         )
+
 
 class GleanIndexingClient(GleanBaseClient):
     """
